@@ -23,7 +23,7 @@ client.on('voiceStateUpdate', (oldmember, newmember) => {                 //Acti
   let text_channelId = config.textChannelId;                                  
 
   //Checks if the previous channel of the user was the Lofi_Room and if the next room is either diferent from Lofi_Room or no room at all
-  if (oldmember.channel == voice_channelId && (newmember.channel != oldmember.channel || newmember.channel == null)) {
+  if (oldmember.channel == voice_channelId && (newmember.channel != oldmember.channel || newmember.channel == null) && size != 0) {
     oldsize = size;       
     size = size - 1;    //Decreasses the number of people in the room
   }
@@ -33,13 +33,13 @@ client.on('voiceStateUpdate', (oldmember, newmember) => {                 //Acti
   if (newmember.channel == voice_channelId && (oldmember.channel != newmember.channel || oldmember.channel == null)) {
     oldsize = size;
     size = size + 1;    //Increasses the number of people in the room
-    if(!(newmember.member.user.bot)){
+    /*if(!(newmember.member.user.bot)){
       let text_channel = newmember.guild.channels.cache.get(text_channelId);  //Gets current name of the viewer text channel
       var name = text_channel.name.split(':');                                //Splits the text from the number of viewers
       name[1]++;
       name[0].concat(name[1]);
       text_channel.setName(name[0]);                                          //Changes Name
-    }
+    }*/
   }
 
 
