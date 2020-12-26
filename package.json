@@ -1,0 +1,22 @@
+{
+  "name": "lofi-discord-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot that enter a designated voice room whenever someone enters that room. Starts playing lofi strem from youtube.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "node-opus": "^0.3.3",
+    "opusscript": "^0.0.7",
+    "ytdl-core": "^4.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "NEEC",
+  "license": "ISC"
+}
