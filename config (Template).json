@@ -1,11 +1,16 @@
 {
+    "prefix": "!",
     "token": "################################################",
 
-    "voiceChannelId": 123456789987654321,
-    "^^Lofi Bot personal voice room^^": 0,
+    "voiceChannelId": "123456789987654321",
+    "^^Lofi Bot personal voice room^^": "Delete this propertie",
 
-    "textChannelId": 123456789987654321,
-    "^^Lofi Bot personal text room for counter^^": 0,
+    "textChannelId": "123456789987654321",
+    "^^Lofi Bot personal text room for counter^^": "Delete this propertie",
 
-    "url": ["Links"]
+    "serverId": "123456789987654321",
+    "^^Guild Id obtained by right clicking the server name^^": "Delete this propertie",
+
+    "manager_role": "123456789987654321",
+    "^^Id of the role capable of controlling the bot from discord^^": "Delete this propertie"
 }
