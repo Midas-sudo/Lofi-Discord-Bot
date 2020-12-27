@@ -43,4 +43,4 @@ To deploy just repeat the steps for development as they are the same.
 
 ## Extra Info
 
-For more information about the BOT it self see the image 'HELP!!.png' inside the docs folder.
+For more information about the BOT it self follow the comments and if you still have any doubt send me a message and I will explain.
