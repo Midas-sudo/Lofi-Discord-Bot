@@ -23,10 +23,11 @@ npm install
 ```
 
 If done correctly you should see something like this and a total of arround 88 packages added
-![docs/Readme_img/npm_install.png](docs/Readme_img/npm_install.png)
+![docs/Readme_img/npm_install.png](./docs/Readme_img/npm_install.png)
 
 After the installation of the packages you are read to put the bot online but first there are some parts in the code that you will need to change, the first being the values inside the 'config (Template).json'
-![docs/Readme_img/config.png](docs/Readme_img/config.png)
+![docs/Readme_img/config.png](./docs/Readme_img/config.png)
+
 -Change the token to your own Bot token as well as the id's of the rooms that are going to be used
 -The Prefix and the id of the role able to manage the bot in discord
 
