@@ -22,7 +22,7 @@ Open the terminal on the local folder where the files are and start by installin
 npm install
 ```
 
-If done correctly you should see something like this and a total of arround 88 packages added
+If done correctly you should see something like this and a total of around 88 packages added
 ![/docs/README_img/npm_install.png](docs/README_img/npm_install.png)
 
 After the installation of the packages you are read to put the bot online but first there are some parts in the code that you will need to change, the first being the values inside the 'config (Template).json'
