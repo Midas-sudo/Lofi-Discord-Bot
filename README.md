@@ -1,6 +1,6 @@
 # Lofi Discord Bot
 
-A Discord bot created with the sole pourpose to play a specific link (in my specific case a Lofi stream) from youtube when ever someone enters a specific voice channel. 
+A Discord bot created with the sole purpose to play a specific link (in my specific case a Lofi stream) from youtube when ever someone enters a specific voice channel. 
 
 ## Getting Started
 
