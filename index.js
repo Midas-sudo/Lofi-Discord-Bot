@@ -66,6 +66,66 @@ client.on("message", async (message) => {
     });
     prefix = args[0];                                                                   //Changes the prefix of the variable that has the old prefix
     message.channel.send(`**Prefixo alterado com sucesso. Novo Prefixo: ${args[0]}**`); //Send's message confirming the change of the prefix
+  }else if(command == "vc_id"){
+    config.voiceChannelId = args[0];                                              //Sets the new voice channel ID in the JSON object loaded in the start of the code
+    fs.writeFile(config_name, JSON.stringify(config, null, 2), function writeJSON(err) {  //Writes to the config file the new JSON Object with the new ID
+      if (err) return console.log(err);
+      console.log(JSON.stringify(config));
+      console.log('writing to ' + config_name);
+    });
+    voiceChannelId = args[0];                                                                   //Changes the voice channel ID of the variable that has the old ID
+    message.channel.send(`**ID do voice channel alterado com sucesso. Novo ID: ${args[0]}**`); //Send's message confirming the change of the ID
+  }else if(command == "text_id"){
+    config.textChannelId = args[0];                                              //Sets the new text channel ID in the JSON object loaded in the start of the code
+    fs.writeFile(config_name, JSON.stringify(config, null, 2), function writeJSON(err) {  //Writes to the config file the new JSON Object with the new ID
+      if (err) return console.log(err);
+      console.log(JSON.stringify(config));
+      console.log('writing to ' + config_name);
+    });
+    textChannelId = args[0];                                                                  //Changes the text channel ID of the variable that has the old ID
+    message.channel.send(`**ID do text channel alterado com sucesso. Novo ID: ${args[0]}**`); //Send's message confirming the change of the ID
+  }else if(command == `${prefix}help`){        
+    message.channel.send({
+    embed: {
+        color: 0xf7c500,
+        title: "LOFI Bot Help Page",
+        description: "Ahh I see you are looking for some guidance",
+        fields: [
+            {
+              "name": "Alguns comandos são:",
+              "value": "-------------------------------------------"
+            },
+            {
+              "name": `${prefix}views`,
+              "value": "Este comando mostra o número total de views`\n"
+            },
+            {
+              "name": `${prefix}reset`,
+              "value": "Este comando faz reset ao número de views"
+            },
+            {
+              "name": `${prefix}prefix`,
+              "value": `Este comando define um novo prefixo passado como argumento.\n\`\`\`Exemplo: ${prefix}prefix ##\n Neste caso o novo prefixo passaria a ser ##\`\`\``
+            },
+            {
+              "name": `${prefix}vc_id`,
+              "value": `Este comando define um novo id, para o voice channel, passado como argumento.\n\`\`\`Exemplo: ${prefix}vc_id 123456789987654321\n Neste caso o novo id passaria a ser 123456789987654321\`\`\``
+            },
+            {
+              "name": `${prefix}text_id`,
+              "value": `Este comando define um novo id, para o text channel, passado como argumento.\n\`\`\`Exemplo: ${prefix}text_id 123456789987654321\n Neste caso o novo id passaria a ser 123456789987654321\`\`\``
+            },
+            {
+              "name": `${prefix}${prefix}help`,
+              "value": `Este comando mostra esta mensagem`
+            }
+          ],
+        author: {
+            "name": "Pagina de GitHub",
+            "url": "https://github.com/Midas-sudo/Lofi-Discord-Bot"
+        },
+      },
+    });
   }
 });
 
