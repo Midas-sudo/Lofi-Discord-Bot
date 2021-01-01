@@ -84,6 +84,20 @@ client.on("message", async (message) => {
     });
     textChannelId = args[0];                                                                  //Changes the text channel ID of the variable that has the old ID
     message.channel.send(`**ID do text channel alterado com sucesso. Novo ID: ${args[0]}**`); //Send's message confirming the change of the ID
+  }else if(command == "serv_id"){
+    config.serverlId = args[0];                                              //Sets the new text channel ID in the JSON object loaded in the start of the code
+    fs.writeFile(config_name, JSON.stringify(config, null, 2), function writeJSON(err) {  //Writes to the config file the new JSON Object with the new ID
+      if (err) return console.log(err);
+      console.log(JSON.stringify(config));
+      console.log('writing to ' + config_name);
+    });
+    serverId = args[0];                                                                  //Changes the text channel ID of the variable that has the old ID
+    //Gets current name of the viewer text channel and splits the number from the name
+    channel_name = client.guilds.cache.get(serverId).channels.cache.get(textChannelId).name.split('-');
+    //Getting the current number (this only occures when bot comes online)
+    view_number = channel_name[2];
+    console.log(channel_name, view_number);
+    message.channel.send(`**ID do Server alterado com sucesso. Novo ID: ${args[0]}**`); //Send's message confirming the change of the ID
   }else if(command == `${prefix}help`){        
     message.channel.send({
     embed: {
@@ -114,6 +128,10 @@ client.on("message", async (message) => {
             {
               "name": `${prefix}text_id`,
               "value": `Este comando define um novo id, para o text channel, passado como argumento.\n\`\`\`Exemplo: ${prefix}text_id 123456789987654321\n Neste caso o novo id passaria a ser 123456789987654321\`\`\``
+            },
+            {
+              "name": `${prefix}serv_id`,
+              "value": `Este comando define um novo id, para o server, passado como argumento. ATENÇÂO este comando tem de ser executado apenas depois de mudar o id do textChannel\n\`\`\`Exemplo: ${prefix}serv_id 123456789987654321\n Neste caso o novo id passaria a ser 123456789987654321\`\`\``
             },
             {
               "name": `${prefix}${prefix}help`,
@@ -162,7 +180,7 @@ client.on('voiceStateUpdate', (oldmember, newmember) => {
 
   //Condition only true for the first person that initiates the entry of the bot
   if (size == 1 && oldsize == 0) {
-    newmember.channel.join().then((connection) => {         //Retrieves the user voice_channel (Theoretically is going to always be the Lofi_Room) and calls the join function for the bot
+    client.guilds.cache.get("702503348716437556").channels.cache.get(voiceChannelId).join().then((connection) => {         //Retrieves the user voice_channel and calls the join function for the bot
       // || After joining it starts playing the stream  ||
       // vv                                             vv
       console.log('Successfully connected.');
@@ -178,7 +196,7 @@ client.on('voiceStateUpdate', (oldmember, newmember) => {
 
   //Checks if the bot is alone in the Lofi_Room and leave if true
   if (oldsize == 2 && size == 1) {
-    oldmember.channel.leave();
+    client.guilds.cache.get("702503348716437556").channels.cache.get(voiceChannelId).leave();
   }
   //console.log('size: ' + size);
 });
